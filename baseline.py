@@ -7,9 +7,8 @@ import cv2
 from torchvision.transforms import functional
 from PIL import Image
 
-# 8 COLORS for 8 classes
+# 7 COLORS for 7 classes
 COLORS = [
-    (128, 128, 128) # GRAY
     (255, 0, 0), # RED
     (0, 255, 0), # GREEN
     (0, 0, 255), # BLUE
@@ -58,7 +57,8 @@ def main():
         labels = prediction[0]['labels'].detach().cpu().numpy()
     
         img_mask = np.array(img)
-    
+
+        ## make sample answer img ##
         # for mask, score in zip(masks, scores):
         #     if score > 0.2:
         #         color = np.array([255, 0, 0], dtype=np.uint8)
@@ -69,7 +69,7 @@ def main():
         #         img_mask = cv2.addWeighted(img_mask, 1, colored_mask, 1.0, 0)
 
         for mask, score, label in zip(masks, scores, labels):
-            label = label % 8 # 8 classes
+            label = label % 7 # 7 classes
             
             if score > 0.2:
                 color = COLORS[label]
