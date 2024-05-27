@@ -9,7 +9,7 @@ from PIL import Image
 
 # 8 COLORS for 8 classes
 COLORS = [
-    (0, 0, 0), # BLACK
+    (128, 128, 128) # GRAY
     (255, 0, 0), # RED
     (0, 255, 0), # GREEN
     (0, 0, 255), # BLUE
